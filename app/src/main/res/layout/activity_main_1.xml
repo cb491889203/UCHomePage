@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.handlecar.simulateuchomepage.MainActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <ImageView
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wall"/>
+
+            <!--折叠的参考样板-->
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:background="#00000000"
+                android:orientation="vertical"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.3">
+            </FrameLayout>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+<!--        <TextView
+            app:layout_collapseMode="pin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00000000"/>-->
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <!--滑动scrollview， 内容主题部分-->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_overlapTop="30dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--分类栏-->
+            <LinearLayout
+                android:id="@+id/scroll_title_view"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="推荐"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="视频"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="热点"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="娱乐"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+
+            <!--滑动Recyclerview-->
+            <android.support.v7.widget.RecyclerView
+                app:elevation="1dp"
+                android:scrollbars="vertical"
+                android:id="@+id/rv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#aaaaaaaa"
+                android:nestedScrollingEnabled="false">
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <!--参考  锚点-->
+    <android.support.v7.widget.Toolbar
+        app:layout_anchor="@id/frameLayout"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#00000000"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+    <!--UC头条 标题栏-->
+    <LinearLayout
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/lightBlue"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        app:layout_behavior="com.example.handlecar.simulateuchomepage.behavior.DrawerBehavior"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/paper"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:text="UC头条"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/search"/>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
