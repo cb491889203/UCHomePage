@@ -10,7 +10,7 @@
 
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/header_view"
+        android:id="@+id/ll_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -133,7 +133,7 @@
 
     <!--UC头条 标题栏-->
     <LinearLayout
-        android:id="@+id/title_view"
+        android:id="@+id/ll_title"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/lightBlue"
